@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/', 'NotesController@index');
+Route::get('create', 'NotesController@create');
+Route::post('create', 'NotesController@store');
+Route::get('edit/{note}', 'NotesController@edit');
+Route::patch('edit/{note}', 'NotesController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
